@@ -21,8 +21,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'video_publisher.py=rpi_robot.video_publisher:main',
-            'video_subscriber.py=rpi_robot.video_subscriber:main'
+            'video_publisher=rpi_robot.video_publisher:main',
+            'video_subscriber=rpi_robot.video_subscriber:main',
             
         ],
     },

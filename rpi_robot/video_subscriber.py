@@ -9,7 +9,7 @@ class VideoSubscriber(Node):
         super().__init__('video_subscriber')
         self.subscription = self.create_subscription(
             Image,
-            'video_stream',
+            'video_s',
             self.image_callback,
             10
         )
@@ -17,8 +17,11 @@ class VideoSubscriber(Node):
         self.bridge = CvBridge()
 
     def image_callback(self, msg):
+        
+        self.get_logger().info('the image frame is recived')
         cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
         cv2.imshow("Video Stream", cv_image)
+        
         cv2.waitKey(1)
 
 def main(args=None):
